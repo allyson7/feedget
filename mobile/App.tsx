@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { View } from "react-native";
@@ -9,7 +10,7 @@ import {
 } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
 
-import { Widget } from "./src/components/Widget";
+import Widget from "./src/components/Widget";
 
 export default function App() {
   SplashScreen.preventAutoHideAsync();
@@ -31,8 +32,9 @@ export default function App() {
         backgroundColor: theme.colors.background,
       }}
     >
-      <Widget />
       <StatusBar style="light" backgroundColor="transparent" translucent />
+
+      <Widget />
     </View>
   );
 }
