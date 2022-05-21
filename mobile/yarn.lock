@@ -3275,9 +3275,9 @@ find-yarn-workspace-root@~2.0.0:
     micromatch "^4.0.2"
 
 flow-parser@0.*:
-  version "0.178.0"
-  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.178.0.tgz#85d300e29b146b54cb79e277e092ffd401b05f0c"
-  integrity sha512-OviMR2Y/sMSyUzR1xLLAmQvmHXTsD1Sq69OTmP5AckVulld7sVNsCfwsw7t3uK00dO9A7k4fD+wodbzzaaEn5g==
+  version "0.178.1"
+  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.178.1.tgz#4efe62b3c551c615411bd4a75031c881ff53a7da"
+  integrity sha512-TOvOfZVOhCsKAVU2E4QgFD5vmmF/JWl4bX77H4aYoq8No1mZdtUV8GW6wv03l8N3dmlRqAC5rZcDQ5e8aLDBOg==
 
 flow-parser@^0.121.0:
   version "0.121.0"
