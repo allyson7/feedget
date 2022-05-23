@@ -10,7 +10,7 @@ import { styles } from "./styles";
 export function Options() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Deixe seu Feedback</Text>
+      <Text style={styles.title}>Avalie meu portifolio</Text>
 
       <View style={styles.options}>
         {Object.entries(feedbackTypes).map(([key, value]) => (
