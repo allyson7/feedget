@@ -5,6 +5,7 @@ import { CloseButton } from "../../CloseButton";
 import { ScreenshotButton } from "../ScreenshotButton";
 
 import { api } from "../../../lib/api";
+import { Loading } from "../../Loading";
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
@@ -19,11 +20,14 @@ export function FeedbackContentStep({
 }: FeedbackContentStepProps) {
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState("");
+  const [isSendingFeedback, setIsSendingFeedback] = useState(false);
 
   const feedbackTypeInfo = feedbackTypes[feedbackType];
 
   async function handleSubmitFeedback(event: FormEvent) {
     event.preventDefault();
+
+    setIsSendingFeedback(true);
 
     await api.post("/feedbacks", {
       type: feedbackType,
@@ -31,6 +35,7 @@ export function FeedbackContentStep({
       screenshot,
     });
 
+    setIsSendingFeedback(false);
     onFeedbackSent();
   }
 
@@ -72,10 +77,14 @@ export function FeedbackContentStep({
 
           <button
             type="submit"
-            disabled={comment.length === 0}
+            disabled={comment.length === 0 || isSendingFeedback}
             className="p-2 bg-brand-500 rounded-md border-transparent flex flex-1 justify-center items-center text-sm hover:bg-brand-300 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900 focus:ring-brand-500 disabled:opacity-50 disabled:hover:bg-brand-500 disabled:hover:cursor-not-allowed"
           >
-            Enviar {feedbackTypeInfo.title}
+            {isSendingFeedback ? (
+              <Loading />
+            ) : (
+              `Enviar ${feedbackTypeInfo.title}`
+            )}
           </button>
         </footer>
       </form>
