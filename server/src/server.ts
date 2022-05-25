@@ -13,6 +13,6 @@ app.use(routes);
 // GET = buscar informaçÕES
 // POST = cafastrar isformações
 
-app.listen(3333, () => {
+app.listen(process.env.PORT || 3333, () => {
   console.log('HTTP server runnning!');
 })
